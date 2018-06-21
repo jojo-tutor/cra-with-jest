@@ -1,6 +1,6 @@
 export function getUsers(callback) {
-    setTimeout(() => {
-        return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
             resolve(
                 callback([
                     { id: 1, name: 'John Doe', email: 'john@mailinator.com' },
@@ -8,7 +8,14 @@ export function getUsers(callback) {
                     { id: 3, name: 'Mark Doe', email: 'mark@mailinator.com' }
                 ])
             )
-        })
-        
-    }, 1000)
+        }, 1000)
+    })
+}
+
+export function fetchNumbers() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve([1, 2, 3, 4, 5])
+        }, 1000)
+    })
 }

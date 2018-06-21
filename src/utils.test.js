@@ -1,4 +1,4 @@
-import { getUsers } from './utils'
+import { getUsers, fetchNumbers } from './utils'
 
 describe('Utils Test', () => {
     test('object assignment', () => {
@@ -17,5 +17,13 @@ describe('Utils Test', () => {
             done()
         }
         getUsers(callback)
+    })
+
+    test('testing promise', () => {
+        return fetchNumbers().then(data => {
+            expect(Array.isArray(data)).toBeTruthy()
+            expect(data.length).toEqual(5)
+            expect(data).toEqual([1, 2, 3, 4, 5])
+        })
     })
 })
