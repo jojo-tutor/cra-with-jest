@@ -1,5 +1,5 @@
 export function getUsers(callback) {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
         setTimeout(() => {
             resolve(
                 callback([
@@ -13,9 +13,17 @@ export function getUsers(callback) {
 }
 
 export function fetchNumbers() {
-    return new Promise((resolve, reject) => {
+    return new Promise(resolve => {
         setTimeout(() => {
             resolve([1, 2, 3, 4, 5])
+        }, 1000)
+    })
+}
+
+export function getCompany() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve({ id: 100, name: 'Company Inc.', status: 'Active' })
         }, 1000)
     })
 }

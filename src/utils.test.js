@@ -1,6 +1,6 @@
-import { getUsers, fetchNumbers } from './utils'
+import { getUsers, fetchNumbers, getCompany } from './utils'
 
-describe('Utils Test', () => {
+describe('Test - ', () => {
     test('the object assignment', () => {
         let object1 = { a: 1, b: 1 }
         let object2 = {}
@@ -20,10 +20,17 @@ describe('Utils Test', () => {
     })
 
     test('the async with promise', () => {
-        return fetchNumbers().then(data => {
-            expect(Array.isArray(data)).toBeTruthy()
-            expect(data.length).toBe(5)
-            expect(data).toEqual([1, 2, 3, 4, 5])
+        return fetchNumbers().then(numbers => {
+            expect(Array.isArray(numbers)).toBeTruthy()
+            expect(numbers.length).toBe(5)
+            expect(numbers).toEqual([1, 2, 3, 4, 5])
         })
+    })
+
+    test('the async with async/await', async () => {
+        const company = await getCompany()
+        expect(typeof company).toBe('object')
+        expect(Array.isArray(company)).toBeFalsy()
+        expect(company.id).toBeTruthy()
     })
 })
