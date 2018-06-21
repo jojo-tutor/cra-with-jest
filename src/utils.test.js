@@ -13,7 +13,7 @@ describe('Utils Test', () => {
     test('testing callbacks', done => {
         function callback(data) {
             expect(Array.isArray(data)).toBe(true)
-            expect(data.length).toEqual(3)
+            expect(data.length).toBe(3)
             done()
         }
         getUsers(callback)
@@ -22,7 +22,7 @@ describe('Utils Test', () => {
     test('testing promise', () => {
         return fetchNumbers().then(data => {
             expect(Array.isArray(data)).toBeTruthy()
-            expect(data.length).toEqual(5)
+            expect(data.length).toBe(5)
             expect(data).toEqual([1, 2, 3, 4, 5])
         })
     })
