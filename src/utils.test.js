@@ -1,7 +1,7 @@
 import { getUsers, fetchNumbers } from './utils'
 
 describe('Utils Test', () => {
-    test('object assignment', () => {
+    test('the object assignment', () => {
         let object1 = { a: 1, b: 1 }
         let object2 = {}
         object2 = { ...object1 }
@@ -10,7 +10,7 @@ describe('Utils Test', () => {
         expect(object2).toEqual({ a: 1, b: 1 })
     })
     
-    test('testing callbacks', done => {
+    test('the async with callback', done => {
         function callback(data) {
             expect(Array.isArray(data)).toBe(true)
             expect(data.length).toBe(3)
@@ -19,7 +19,7 @@ describe('Utils Test', () => {
         getUsers(callback)
     })
 
-    test('testing promise', () => {
+    test('the async with promise', () => {
         return fetchNumbers().then(data => {
             expect(Array.isArray(data)).toBeTruthy()
             expect(data.length).toBe(5)
